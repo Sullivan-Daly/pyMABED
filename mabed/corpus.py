@@ -31,8 +31,9 @@ class Corpus:
         self.stopwords = utils.load_stopwords(stopwords_file_path)
 
         # identify features
-        with open(source_file_path, 'r') as input_file:
+        with open(source_file_path, encoding='utf-8') as input_file:
             csv_reader = csv.reader(input_file, delimiter=';')
+            print(input_file)
             header = next(csv_reader)
 
             text_column_index = header.index('text')
@@ -97,7 +98,7 @@ class Corpus:
         # compute word frequency
         self.global_freq = dok_matrix((len(self.vocabulary), self.time_slice_count), dtype=np.short)
         self.mention_freq = dok_matrix((len(self.vocabulary), self.time_slice_count), dtype=np.short)
-        with open(self.source_file_path, 'r') as input_file:
+        with open(self.source_file_path, encoding='utf-8') as input_file:
             csv_reader = csv.reader(input_file, delimiter=';')
             header = next(csv_reader)
             text_column_index = header.index('text')
