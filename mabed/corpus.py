@@ -70,7 +70,7 @@ class Corpus:
             self.save_start_date = self.start_date
             self.start_date = datetime.strptime(self.start_date, "%Y-%m-%d %H:%M:%S")
             self.end_date = datetime.strptime(self.end_date, "%Y-%m-%d %H:%M:%S")
-            print('   Corpus: %i tweets, spanning from %s to %s' % (self.size,
+            print('   Corpus: spanning from %s to %s' % (
                                                                     self.start_date,
                                                                     self.end_date))
             print('   Vocabulary: %d distinct words' % vocabulary_size)
