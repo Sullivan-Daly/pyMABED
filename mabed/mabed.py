@@ -216,6 +216,12 @@ class MABED:
 #        print ('0 -> ' + event[0])
 #        print ('1 -> ' + event[1])
 #        print ('2 -> ' + event[2])
+        sDateBegin = str(self.corpus.to_date(event[1][0]))
+        sDateEnd = str(self.corpus.to_date(event[1][1]))
+        xDateBegin = time.mktime(time.strptime(sDateBegin, '%Y-%m-%d %H:%M:%S'))
+        xDateEnd = time.mktime(time.strptime(sDateEnd, '%Y-%m-%d %H:%M:%S'))
+        xFile.write(str(xDateBegin)[:-2] + '; ')
+        xFile.write(str(xDateEnd)[:-2] + '; ')
         xFile.write(str(event[2]) + '; ')
         for even in event[4]:
             if even <= 0 :
@@ -224,12 +230,12 @@ class MABED:
         xFile.write('\n')
 
     def prepare_csv(self, sStartTime, sBatchDuration):
-        xFile = open(S_CSVFILE_PATH, 'a')
-        xFile.write('event; ')
-        event = self.events[0]
-        nStartTime = time.mktime(datetime.datetime.strptime(sStartTime, '%Y-%m-%d %H:%M:%S').timetuple())
-        for anomaly in event[4]:
-            xFile.write(str(nStartTime) + '; ')
-            nStartTime += sBatchDuration * 60
+        xFile = open(S_CSVFILE_PATH, 'w')
+      #  xFile.write('event; ')
+     #   event = self.events[0]
+      #  nStartTime = time.mktime(datetime.datetime.strptime(sStartTime, '%Y-%m-%d %H:%M:%S').timetuple())
+     #   for anomaly in event[4]:
+     #       xFile.write(str(nStartTime) + '; ')
+     #       nStartTime += sBatchDuration * 60
         #print ('4 -> ' + event[4])
-        xFile.write('\n')
+      #  xFile.write('\n')
