@@ -10,7 +10,7 @@ import mabed.stats as st
 import time
 import datetime
 
-S_CSVFILE_PATH = 'test_result.csv'
+S_CSVFILE_PATH = '../Results/data_MABED.csv'
 
 __authors__ = "Adrien Guille, Nicolas Dugué"
 __email__ = "adrien.guille@univ-lyon2.fr"
